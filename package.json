@@ -1,11 +1,11 @@
 {
-  "name": "custom-backup",
+  "name": "custom-javascript-backup",
   "version": "0.0.0",
-  "description": "",
+  "description": "Create custom backups using javascript",
   "main": "index.js",
   "bin": {
-    "custom-backup": "bin.js",
-    "cb": "bin.js"
+    "custom-javascript-backup": "bin.js",
+    "cjb": "bin.js"
   },
   "dependencies": {
     "bluebird": "^3.5.0",

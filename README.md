@@ -1,4 +1,6 @@
-# custom-backup
+# custom-javascript-backup
+
+Create custom backups using javascript
 
 ## Prologue
 
