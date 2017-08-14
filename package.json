@@ -1,0 +1,15 @@
+{
+  "name": "custom-backup",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "custom-backup": "bin.js",
+    "cb": "bin.js"
+  },
+  "dependencies": {
+    "chokidar": "^1.7.0",
+    "configucius": "^0.11.1",
+    "debug-any-level": "^0.3.0"
+  }
+}
