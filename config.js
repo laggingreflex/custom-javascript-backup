@@ -22,5 +22,6 @@ if (!config.root) {
   config.root = process.cwd();
 }
 
+// console.log(`config:`, config.get());
 
 module.exports = config;

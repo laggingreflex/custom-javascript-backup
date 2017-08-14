@@ -8,7 +8,8 @@ log.enable('*')
 
 walk(config.root, {
   onFile: async(f, dirConfig = {}) => {
+
     // console.log(f);
   },
-  exclude: ['*node_modules', '*.git'],
+  ...config.get(),
 }).catch(log.error);
