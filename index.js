@@ -1,6 +1,7 @@
 require('pathify-string');
 global.Promise = require('bluebird');
 global.fs = require('fs-extra');
+global._ = require('lodash');
 const log = require('debug-any-level');
 const config = require('./config');
 const walk = require('./walk');

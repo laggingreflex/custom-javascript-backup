@@ -1,5 +1,3 @@
-const _ = require('lodash');
-
 module.exports = fs
   .readdirSync(__dirname)
   .filter(f => f.match(/\.js$/))

@@ -1,7 +1,6 @@
 const Config = require('configucius').default;
 const untildify = require('untildify');
 const log = require('debug-any-level').config;
-const OS = require('os');
 const defaultConfig = require('./config.default.json');
 
 const config = new Config({

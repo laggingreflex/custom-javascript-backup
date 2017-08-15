@@ -1,4 +1,3 @@
-const _ = require('lodash');
 const { isMatch } = require('matcher');
 const log = require('debug-any-level').walk;
 const { arrifyExcludes, handleError, parseGitignore } = require('./utils');
