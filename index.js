@@ -3,13 +3,10 @@ global.Promise = require('bluebird');
 const log = require('debug-any-level');
 const config = require('./config');
 const walk = require('./walk');
+const { handleError } = require('./utils');
 
-log.enable('*')
+// log.enable('*include*')
+log.enable('*error*,*done*,' + config.log);
+// log.enable('*error*')
 
-walk(config.root, {
-  onFile: async(f, dirConfig = {}) => {
-
-    // console.log(f);
-  },
-  ...config.get(),
-}).catch(log.error);
+walk(config.root).catch(log.error).then(() => log.done('Finished'));

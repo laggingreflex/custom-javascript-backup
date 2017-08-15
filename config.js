@@ -1,13 +1,16 @@
-var Config = require('configucius').default;
-var defaultConfig = require('./config.default.json');
+const Config = require('configucius').default;
+const log = require('debug-any-level').config;
+const OS = require('os');
+const { cjbModule } = require('./utils');
+const defaultConfig = require('./config.default.json');
 
 const config = new Config({
-  configFile: '~/.custom-backup',
+  configFile: '~/.cjb',
   options: {
     root: {
       type: 'string',
-      default: defaultConfig.root,
-      prompt: true,
+      // default: defaultConfig.root,
+      // prompt: true,
     },
   },
   duplicateArgumentsArray: false,
@@ -22,6 +25,11 @@ if (!config.root) {
   config.root = process.cwd();
 }
 
-// console.log(`config:`, config.get());
+if (config.root.match(/^~/)) {
+  config.root = OS.homedir().join(config.root.substr(1));
+}
 
 module.exports = config;
+
+// log.enable('*')
+// log.silly(config.get());
