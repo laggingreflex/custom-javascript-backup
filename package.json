@@ -8,18 +8,14 @@
   },
   "dependencies": {
     "bluebird": "^3.5.0",
-    "case": "^1.5.3",
-    "chokidar": "^1.7.0",
     "configucius": "^1.0.0",
     "debug-any-level": "^0.3.0",
     "fs-extra": "^4.0.1",
-    "gitignore-parser": "^0.0.2",
     "ignore": "^3.3.3",
     "lodash": "^4.17.4",
     "matcher": "^1.0.0",
     "parse-gitignore": "^0.4.0",
     "pathify-string": "^0.1.0",
-    "promise-delay": "^2.1.0",
-    "userland-module": "^0.1.0"
+    "untildify": "^3.0.2"
   }
 }

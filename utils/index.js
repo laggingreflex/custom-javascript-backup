@@ -1,5 +1,4 @@
-const fs = require('fs-extra');
-const { camel } = require('case');
+const _ = require('lodash');
 
 module.exports = fs
   .readdirSync(__dirname)
@@ -7,6 +6,6 @@ module.exports = fs
   .map(f => f.replace('.js', ''))
   .reduce(
     (exports, module) => ({
-      [camel(module)]: require(`./${module}`),
+      [_.camelCase(module)]: require(`./${module}`),
       ...exports
     }), {});
