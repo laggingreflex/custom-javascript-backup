@@ -1,7 +1,7 @@
 const Config = require('configucius').default;
+const untildify = require('untildify');
 const log = require('debug-any-level').config;
 const OS = require('os');
-const { cjbModule } = require('./utils');
 const defaultConfig = require('./config.default.json');
 
 const config = new Config({
@@ -25,9 +25,7 @@ if (!config.root) {
   config.root = process.cwd();
 }
 
-if (config.root.match(/^~/)) {
-  config.root = OS.homedir().join(config.root.substr(1));
-}
+config.root = untildify(config.root)
 
 module.exports = config;
 

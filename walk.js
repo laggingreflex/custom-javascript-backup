@@ -4,6 +4,8 @@ const log = require('debug-any-level').walk;
 const { arrifyExcludes, handleError, parseGitignore } = require('./utils');
 const config = require('./config');
 
+const homeGitIgnore = parseGitignore('~/.gitignore');
+
 module.exports = async function walk(dir, opts = {}) {
 
   const rootRelativeDir = config.root.relative(dir);
@@ -91,6 +93,10 @@ module.exports = async function walk(dir, opts = {}) {
       }
       if (exclude = opts.dirIgnore && opts.dirIgnore.ignores(opts.dirIgnoreConfigDir.relative(fullFilePath))) {
         log.exclude.verbose(`Excluding '${rootRelativeFilePath}' (ignored in '${opts.dirIgnoreConfigFile}')`);
+        return;
+      }
+      if (exclude = homeGitIgnore && homeGitIgnore.ignores(filename)) {
+        log.exclude.verbose(`Excluding '${rootRelativeFilePath}' (ignored in '~/.gitignore')`);
         return;
       }
       if (opts.include && !opts.include.find(e => isMatch(fullFilePath, e))) {
