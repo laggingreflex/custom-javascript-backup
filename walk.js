@@ -3,9 +3,13 @@ const log = require('debug-any-level').walk;
 const { arrifyExcludes, handleError, parseGitignore } = require('./utils');
 const config = require('./config');
 
-const homeGitIgnore = parseGitignore('~/.gitignore');
+let homeGitIgnore, homeGitIgnoreErr;
 
 module.exports = async function walk(dir, opts = {}) {
+
+  if (!homeGitIgnore && !homeGitIgnoreErr) {
+    [homeGitIgnoreErr, homeGitIgnore] = await parseGitignore('~/.gitignore');
+  }
 
   const rootRelativeDir = config.root.relative(dir);
 
