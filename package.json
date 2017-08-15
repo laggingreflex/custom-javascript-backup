@@ -10,6 +10,7 @@
     "bluebird": "^3.5.0",
     "configucius": "^1.0.0",
     "debug-any-level": "^0.3.0",
+    "enquire-simple": "^0.1.0",
     "fs-extra": "^4.0.1",
     "ignore": "^3.3.3",
     "lodash": "^4.17.4",
