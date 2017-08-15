@@ -1,8 +1,6 @@
-const fs = require('fs-extra');
 const _ = require('lodash');
 const { isMatch } = require('matcher');
 const log = require('debug-any-level').walk;
-const delay = require('promise-delay');
 const { arrifyExcludes, handleError, parseGitignore } = require('./utils');
 const config = require('./config');
 
@@ -82,7 +80,7 @@ module.exports = async function walk(dir, opts = {}) {
     .map(f => dir.join(f)),
     async fullFilePath => {
       if (opts.delay) {
-        await delay(opts.delay);
+        await Promise.delay(opts.delay);
       }
       const filename = dir.relative(fullFilePath);
       const rootRelativeFilePath = config.root.relative(fullFilePath);
